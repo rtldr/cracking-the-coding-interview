@@ -7,6 +7,23 @@ package recursivedp;
 class _08_01_TripleStep {
 
     int countWays(int steps) {
-        throw new UnsupportedOperationException();
+
+        if(steps == 0) {
+            return 1;
+        }
+
+        int ways = 0;
+        if(steps > 2) {
+            ways += countWays(steps - 3);
+        }
+
+        if(steps > 1) {
+            ways += countWays(steps - 2);
+        }
+
+        if(steps > 0) {
+            ways += countWays(steps - 1);
+        }
+        return ways;
     }
 }
